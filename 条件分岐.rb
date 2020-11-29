@@ -1,4 +1,4 @@
-puts "旅行プランを洗濯してください"
+puts "旅行プランを選択してください"
 
 puts <<~TEXT
  1. 沖縄旅行(¥10,000)
@@ -6,29 +6,32 @@ puts <<~TEXT
  3. 九州旅行(¥15,000)
 TEXT
 
-#プラン選択
+# プラン選択
 plan_num = gets.to_i
 
-if plan_num == 1
+
+case plan_num
+when 1
   puts "沖縄旅行ですね、何名で行きますか？"
-  place = 10000
-elsif plan_num == 2
+  price = 10000
+when 2
   puts "北海道旅行ですね、何名で行きますか？"
-  place = 20000
-elsif plan_num == 3
+  price = 20000
+when 3
   puts "九州旅行ですね、何名で行きますか？"
-  place = 15000
+  price = 15000
 else
-  puts "1~3から選択して下さい"
-end
+  puts "1~3で再入力をお願いします"
 
-num_people = gets.to_i
+end 
 
-if num_people >= 5
+pepole_num = gets.to_i
+
+if pepole_num >= 5
     puts "5人以上なので10%割引となります"
-    puts "合計金額: #{(num_people * place * 0.9).floor}"
+    puts "合計金額: ¥#{(pepole_num * price * 0.9).floor}"
   else
-    puts "合計金額: #{(num_people * place).floor}"
+    puts "合計金額: ¥#{(pepole_num * price).floor}"
 
 end
   
